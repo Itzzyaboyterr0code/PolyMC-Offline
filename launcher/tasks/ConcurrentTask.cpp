@@ -36,7 +36,8 @@ void ConcurrentTask::executeTask()
 {
     m_total_size = m_queue.size();
 
-    for (int i = 0; i < m_total_max_size; i++)
+    int num_starts = std::min(m_total_max_size, m_total_size);
+    for (int i = 0; i < num_starts; i++)
         startNext();
 }
 
