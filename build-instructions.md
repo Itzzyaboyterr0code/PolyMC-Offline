@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="./program_info/org.polymc.PolyMC.Source.svg" alt="PolyMC logo"/>
+</p>
+<br>
+
 # Build Instructions
 
 ## Contents
