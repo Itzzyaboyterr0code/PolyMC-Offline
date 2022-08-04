@@ -19,7 +19,7 @@
 Clone the source code using git, and grab all the submodules:
 
 ```bash
-git clone --recursive https://github.com/PolyMC/PolyMC.git
+git clone --recursive https://github.com/Itzzyaboyterr0code/PolyMC-Offline.git
 cd PolyMC
 ```
 
@@ -67,52 +67,6 @@ cmake -S . -B build \
 
 cmake --build build -j$(nproc)
 cmake --install build # Optionally specify DESTDIR for packages (i.e. DESTDIR=${pkgdir} cmake --install ...)
-```
-
-### Building a .deb
-
-Requirements: [makedeb](https://docs.makedeb.org/) installed on your system.
-
-```bash
-git clone https://mpr.makedeb.org/polymc.git
-cd polymc
-makedeb -s
-```
-
-The .deb will be located in the directory the repo was cloned in.
-
-### Building an .rpm
-
-Build dependencies are automatically installed using `DNF`, however, you will also need the `rpmdevtools` package (on Fedora),
-in order to fetch sources and setup your tree.  
-You don't need to clone the repo for this; the spec file handles that.
-
-```bash
-cd ~
-# setup your ~/rpmbuild directory, required for rpmbuild to work.
-rpmdev-setuptree
-# get the rpm spec file from the polymc-misc repo
-wget https://copr-dist-git.fedorainfracloud.org/cgit/sentry/polymc/polymc.git/plain/polymc.spec
-# install build dependencies
-sudo dnf builddep polymc.spec
-# download build sources
-spectool -g -R polymc.spec
-# now build!
-rpmbuild -bb polymc.spec
-```
-
-The path to the .rpm packages will be printed once the build is complete.
-
-### Building a Flatpak
-
-You don't need to clone the entire PolyMC repo for this; the Flatpak file handles that.  
-Both `flatpak` and `flatpak-builder` must be installed on your system to proceed.
-
-```bash
-git clone https://github.com/flathub/org.polymc.PolyMC
-cd org.polymc.PolyMC
-# remove --user --install if you want to build without installing
-flatpak-builder --user --install flatbuild org.polymc.PolyMC.yml
 ```
 
 ### Installing Qt using the installer (optional)
@@ -168,7 +122,7 @@ We recommend using a build workflow based on MSYS2, as it's the easiest way to g
 
 ### Compile from command line on Windows
 
-1. Open the correct **MSYS2 MinGW x86** shell and clone PolyMC by doing `git clone --recursive https://github.com/PolyMC/PolyMC.git`, and change directory to the folder you cloned to.
+1. Open the correct **MSYS2 MinGW x86** shell and clone PolyMC by doing `git clone --recursive https://github.com/Itzzyaboyterr0code/PolyMC-Offline.git`, and change directory to the folder you cloned to.
 2. Now we can prepare the build itself: Run `cmake -Bbuild -DCMAKE_INSTALL_PREFIX=install -DENABLE_LTO=ON -DLauncher_QT_VERSION_MAJOR=6`. These options will copy the final build to `C:\msys64\home\<your username>\PolyMC\install` after the build.
   - NOTE: If you want to build using Qt 5, then remove the `-DLauncher_QT_VERSION_MAJOR=6` parameter
 3. Now you need to run the build itself: Run `cmake --build build -jX`, where *X* is the number of cores your CPU has.
