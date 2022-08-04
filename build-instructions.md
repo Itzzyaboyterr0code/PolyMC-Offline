@@ -20,7 +20,7 @@ Clone the source code using git, and grab all the submodules:
 
 ```bash
 git clone --recursive https://github.com/Itzzyaboyterr0code/PolyMC-Offline.git
-cd PolyMC
+cd PolyMC-Offline
 ```
 
 **The rest of the documentation assumes you have already cloned the repository.**
