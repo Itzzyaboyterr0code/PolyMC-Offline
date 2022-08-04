@@ -18,7 +18,7 @@ Only way to currently install this **fork** is simply to build it yourself.
 
 ## Building
 
-Check [Build Instructions](https://polymc.org/wiki/development/build-instructions/) for build instructions.
+Check [Build Instructions](./build-instructions.md) for build instructions.
 
 ## Forking/Redistributing/Custom builds policy
 
