@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./program_info/org.polymc.PolyMC.Source.svg" alt="PolyMC logo"/>
+  <img src="./program_info/launcher_icon.svg" alt="PolyMC logo"/>
 </p>
 <br>
 
