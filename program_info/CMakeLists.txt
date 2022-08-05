@@ -8,7 +8,7 @@ if(UNIX)
     endif()
 endif()
 
-set(Launcher_CommonName "PolyMC")
+set(Launcher_CommonName "RandomMC")
 
 set(Launcher_Copyright "PolyMC Contributors\\n© 2012-2021 MultiMC Contributors")
 set(Launcher_Copyright "${Launcher_Copyright}" PARENT_SCOPE)
@@ -17,7 +17,7 @@ set(Launcher_Name "${Launcher_CommonName}" PARENT_SCOPE)
 set(Launcher_DisplayName "${Launcher_CommonName}" PARENT_SCOPE)
 set(Launcher_UserAgent "${Launcher_CommonName}/${Launcher_RELEASE_VERSION_NAME}" PARENT_SCOPE)
 set(Launcher_ConfigFile "polymc.cfg" PARENT_SCOPE)
-set(Launcher_Git "https://github.com/PolyMC/PolyMC" PARENT_SCOPE)
+set(Launcher_Git "https://github.com/Itzzyaboyterr0code/RandomMC" PARENT_SCOPE)
 set(Launcher_DesktopFileName "org.polymc.PolyMC.desktop" PARENT_SCOPE)
 
 set(Launcher_Desktop "program_info/org.polymc.PolyMC.desktop" PARENT_SCOPE)
