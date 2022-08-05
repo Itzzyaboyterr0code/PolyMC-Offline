@@ -3,12 +3,12 @@
 </p>
 <br>
 
-## **PolyMC-Offline**
+## **RandomMC**
 
-PolyMC is a custom launcher for Minecraft that focuses on predictability, long term stability and simplicity.
+RandomMC is a custom launcher for Minecraft that focuses on unpredictability.
 
 This is a **fork** of the PolyMC Launcher and is not endorsed by PolyMC. 
-This **fork** simply remove's DRM (Microsoft) and was made because of Microsofts recent actions.
+This **fork** has some random change's.
 
 
 # Installation
