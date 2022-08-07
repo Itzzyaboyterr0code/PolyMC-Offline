@@ -58,6 +58,8 @@ cmake --install build --component portable
 
 This is the preferred method of installation, and is suitable for packages.
 
+# **MAKE SURE TO REMOVE COMMENTS**
+
 ```bash
 cmake -S . -B build \
    -DCMAKE_BUILD_TYPE=Release \
