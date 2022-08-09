@@ -117,6 +117,11 @@
 
 #include <sys.h>
 
+#ifdef Q_OS_LINUX
+#include <dlfcn.h>
+#include "gamemode_client.h"
+#endif
+
 
 #if defined Q_OS_WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -928,6 +933,8 @@ Application::Application(int &argc, char **argv) : QApplication(argc, argv)
     {
         return;
     }
+
+    updateCapabilities();
     performMainStartupAction();
 }
 
@@ -1592,14 +1599,30 @@ shared_qobject_ptr<Meta::Index> Application::metadataIndex()
     return m_metadataIndex;
 }
 
-Application::Capabilities Application::currentCapabilities()
+void Application::updateCapabilities()
 {
-    Capabilities c;
+    m_capabilities = None;
     if (!getMSAClientID().isEmpty())
-        c |= SupportsMSA;
+        m_capabilities |= SupportsMSA;
     if (!getFlameAPIKey().isEmpty())
-        c |= SupportsFlame;
-    return c;
+        m_capabilities |= SupportsFlame;
+
+#ifdef Q_OS_LINUX
+    if (gamemode_query_status() >= 0)
+        m_capabilities |= SupportsGameMode;
+
+    {
+        void *dummy = dlopen("libMangoHud_dlsym.so", RTLD_LAZY);
+        // try normal variant as well
+        if (dummy == NULL)
+            dummy = dlopen("libMangoHud.so", RTLD_LAZY);
+
+        if (dummy != NULL) {
+            dlclose(dummy);
+            m_capabilities |= SupportsMangoHud;
+        }
+    }
+#endif
 }
 
 QString Application::getJarPath(QString jarFile)
